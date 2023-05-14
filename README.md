@@ -52,37 +52,78 @@ If the control input changes to AB = 10, then all the gates are restricted excep
 
 
 ### PROGRAM 
-/*
+```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
-
+Developed by: S.Iyyanar
+RegisterNumber:212222240036  
+```
+## multiplexer:
+```
+module mux(I0,I1,I2,I3,S0,S1,Y);
+input I0,I1,I2,I3,S0,S1;
+output Y;
+wire S0C,S1C;
+not(S0C,S0);
+not(S1C,S1);
+wire P,Q,R,S;
+and(P,S0C,S1C,I0);
+and(Q,S0C,S1,I1);
+and(R,S0,S1C,I2);
+and(S,S0,S1,I3);
+or(Y,P,Q,R,S);
+endmodule
+```
+## demultiplexer:
+```
+module demux(I,S0,S1,Y0,Y1,Y2,Y3);
+input I,S0,S1;
+output Y0,Y1,Y2,Y3;
+wire S0C,S1C;
+not(S0C,S0);
+not(S1C,S1);
+and(Y0,I,S0C,S1C);
+and(Y1,I,S0C,S1);
+and(Y2,I,S0,S1C);
+and(Y3,I,S0,S1);
+endmodule
+```
 
 
 
 
 
 ### RTL LOGIC  
+## multiplexer:
+![rto multi](https://github.com/Iyyanar22009120/Exercise-07-Multiplexer-and-De--multiplexer/assets/118680259/c7ec2660-1060-42e1-99c1-22df5f9103d2)
 
+## demultiplexer:
 
-
-
+![rto demulti](https://github.com/Iyyanar22009120/Exercise-07-Multiplexer-and-De--multiplexer/assets/118680259/6b896c2f-8da1-4663-8e69-7c060ef194e3)
 
 
 
 
 ### TIMING DIGRAMS  
+## multiplexer:
+![multiplexer 1](https://github.com/Iyyanar22009120/Exercise-07-Multiplexer-and-De--multiplexer/assets/118680259/4c49dbf9-1411-4d80-a51c-be3ccc5751cf)
+
+## demultiplexer:
+![demultiplexer 1](https://github.com/Iyyanar22009120/Exercise-07-Multiplexer-and-De--multiplexer/assets/118680259/e736fbf6-c05a-4ede-a5ef-262c92093a3e)
 
 
 
 
 
 ### TRUTH TABLE 
+## multiplexer:
+![memo](https://github.com/Iyyanar22009120/Exercise-07-Multiplexer-and-De--multiplexer/assets/118680259/716d6f70-bbb9-4426-8fbf-9068cee28901)
 
+## demultiplexer:
+![demo](https://github.com/Iyyanar22009120/Exercise-07-Multiplexer-and-De--multiplexer/assets/118680259/fc3d11f0-cbe0-4b5a-9116-69b1f5cd526d)
 
 
 
 
 
 ### RESULTS 
+Hence 4x1 Multiplexer and 1x4 Demultiplexer is been implemented and verified using verilog programming and its output are validated.
